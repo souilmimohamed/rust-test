@@ -1,3 +1,4 @@
+use colored::Colorize;
 use indicatif::{ProgressBar, ProgressStyle};
 use std::{thread, time};
 

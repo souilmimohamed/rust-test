@@ -1,4 +1,4 @@
-use crate::enums::{IpAddr, IpAdressKind, Option, Result};
+use crate::enums::{IpAddr, IpAdressKind};
 
 pub fn route_kind(ip_kind: IpAdressKind) {
     println!("showing IP adress of kind {:?}", ip_kind);
@@ -8,15 +8,22 @@ pub fn route_ip(ip_addr: IpAddr) {
 }
 pub fn divide(numerator: f64, denominator: f64) -> Option<f64> {
     if denominator == 0.0 {
-        Option::None
+        None
     } else {
-        Option::Some(numerator / denominator)
+        Some(numerator / denominator)
     }
 }
 pub fn divide_2(numerator: f64, denominator: f64) -> Result<f64, String> {
     if denominator == 0.0 {
-        Result::Err(String::from("Cannot divide by zero"))
+        Err(String::from("Cannot divide by zero"))
     } else {
-        Result::Ok(numerator / denominator)
+        Ok(numerator / denominator)
+    }
+}
+pub fn get_elemet_of_vector(vec: Vec<i32>, index: i32) {
+    if index >= 0 && (index as usize) < vec.len() {
+        println!("Element at index {}: {}", index, vec[index as usize]);
+    } else {
+        println!("Index out of bounds");
     }
 }

@@ -1,0 +1,97 @@
+     //primitives data types
+     let x:i32=-42;
+     let y:u32=100;
+     let z:f32=3.14;
+     let b:bool=true;
+     let c:char='a';
+     println!("Signed: {}",x);
+     println!("Unsigned: {}",y);
+     println!("Float: {}",z);
+     println!("Boolean: {}",b);
+     println!("Char: {}",c);
+     compound data types
+
+     let numbers:[i32;5]=[1,2,3,4,5];
+     let strings:[&str;3]=["Apple","Banana","Orange"];
+     println!("Numbers array: {:?}",numbers);
+     println!("Strings array: {:?}",strings);
+
+     println!("Strings array first: {}",strings[0]);
+     println!("Strings array second: {}",strings[1]);
+     println!("Strings array third: {}",strings[2]);
+
+     //tuples
+     let human:(String,i32,bool)=("Alice".to_string(),32,false);
+     println!("Human tuple: {:?}",human);
+     let mix_tuple=("Kratos",23,true,[1,2,3,4,5]);
+     println!("Mix tuple: {:?}",mix_tuple);
+
+     //slices
+     let string_slices_1:&[&str]=&["Lion","Elephant","Crocodile"];
+     println!("Strings slice 1: {:?}",string_slices_1);
+
+     let string_slices_2:&[&String]=&[&"IT".to_string(),&"Harry Potter".to_string(),&"Zen".to_string()];
+     println!("Strings slice 2: {:?}",string_slices_2);
+
+     //String
+     let mut stone_cold:String=String::from("Hell, ");
+     stone_cold.push_str("Yeah !");
+     println!("Stone cold Says: {}",stone_cold);
+
+     //&str string slice
+     let string:String=String::from("Hello, World");
+     let slice:&str=&string;
+     let slice_2:&str=&string[0..5];
+     println!("Slice value. {}",slice);
+     println!("Slice value 5. {}",slice_2);
+
+     //functions
+fn hello_world() {
+    println!("Hello Rust 🦀!");
+}
+fn tell_height(height: i32) {
+    println!("My height is :{}", height);
+}
+fn human_id(name: &str, age: u32, height: f32) {
+    println!(
+        "My Name is :{}, I am {} years old, and my height is {} cm",
+        name, age, height
+    );
+}
+//expressions & statements
+fn add(a: i32, b: i32) -> i32 {
+    a + b
+}
+fn calculate_bmi(weight_kg: f64, height_m: f64) -> f64 {
+    weight_kg / (height_m * height_m)
+}
+
+//
+ hello_world();
+    tell_height(180);
+    human_id("Joel", 55, 182.3);
+
+    let _x = {
+        let price = 5;
+        let qty = 10;
+        price * qty
+    };
+    println!("Value of _x is:{}", _x);
+    let y = add(4, 6);
+    println!("Value of y is: {}", y);
+
+    let weight = 70.0;
+    let height = 1.82;
+    let bmi = calculate_bmi(weight, height);
+    println!("Your BMI is : {:.2},", bmi);
+
+    //
+    fn main() {
+    let s1 = String::from("RUST");
+    let len = calculate_length(&s1);
+    println!("Length of '{}' is {}", s1, len);
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
+}
